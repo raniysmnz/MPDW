@@ -47,6 +47,50 @@ Menyimpan plot
 #dev.off()
 ```
 
+## Single Moving Average & Double Moving Average
+
+### Pembagian Data
+
+Pembagian data latih dan data uji dilakukan dengan perbandingan 80% data latih dan 20% data uji.
+
+```{r}
+#membagi data latih dan data uji
+training_ma <- data[1:193,]
+testing_ma <- data[194:242,]
+train_ma.ts <- ts(training_ma$Close)
+test_ma.ts <- ts(testing_ma$Close)
+```
+
+### Eksplorasi Data
+
+Eksplorasi data dilakukan pada keseluruhan data, data latih serta data uji menggunakan plot data deret waktu.
+
+```{r}
+#eksplorasi keseluruhan data
+plot(data.ts, col="red",main="Plot semua data")
+points(data.ts)
+
+#eksplorasi data latih
+plot(train_ma.ts, col="blue",main="Plot data latih")
+points(train_ma.ts)
+
+#eksplorasi data uji
+plot(test_ma.ts, col="blue",main="Plot data uji")
+points(test_ma.ts)
+```
+
+```{r}
+#Eksplorasi dengan GGPLOT
+library(ggplot2)
+ggplot() + 
+  geom_line(data = training_ma, aes(x = Period Time, y = Close, col = "Data Latih")) +
+  geom_line(data = testing_ma, aes(x = Period Time, y = Close, col = "Data Uji")) +
+  labs(x = "Periode Waktu", y = "Harga Jual", color = "Legend") +
+  scale_colour_manual(name="Keterangan:", breaks = c("Data Latih", "Data Uji"),
+                      values = c("blue", "red")) + 
+  theme_bw() + theme(legend.position = "bottom",
+                     plot.caption = element_text(hjust=0.5, size=12))
+```
 ## Pemulusan Data Musiman
 
 Selanjutnya melakukan pembagian data dan mengubahnya menjadi data deret waktu.
