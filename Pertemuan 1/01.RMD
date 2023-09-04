@@ -18,7 +18,7 @@ library("TSA")
 
 ```{r}
 library(rio)
-data <- import("https://raw.githubusercontent.com/raniysmnz/MPDW/main/Pertemuan%201/Kurs_JPY_PT2123.csv")
+data <- import("https://raw.githubusercontent.com/raniysmnz/MPDW/main/Data/Kurs_JPY_PT2123.csv")
 ```
 
 ## Eksplorasi Data
