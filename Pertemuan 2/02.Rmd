@@ -17,13 +17,13 @@ library(HoRM) #untuk membuat model regresi Hildreth-Lu
 
 # input data
 ```{r}
-data <- import("https://raw.githubusercontent.com/raniysmnz/MPDW/main/Data/measures_100.csv")
+data <- import("https://raw.githubusercontent.com/raniysmnz/MPDW/main/Pertemuan%202/measures_100.csv")
 str(data)
 ```
 
 ## Eksplorasi Data
 
-Sebelum melakukan regresi, akan diperlihatkan *plot time-series* dari Rotor Temperature (PM)
+Sebelum melakukan regresi, akan diperlihatkan *plot time-series* dari torque
 
 ```{r}
 #Membentuk objek time series
